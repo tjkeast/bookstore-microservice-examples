@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: book-1
+      author: tkeast
+      changes:
+        - createTable:
+            tableName: book
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: title
+                  type: varchar(500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: author
+                  type: varchar(500)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: release_date
+                  type: timestamptz
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cover_image_url
+                  type: varchar(500)
+              - column:
+                  name: stock
+                  type: int
+                  constraints:
+                    nullable: false
+                    defaultValue: 0
+              - column:
+                  name: price
+                  type: numeric

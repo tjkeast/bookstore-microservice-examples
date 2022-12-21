@@ -1,0 +1,54 @@
+micronaut:
+  application:
+    name: bookstoreExample
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/bookstore-example
+    username: postgres
+    password: password
+    driverClassName: org.postgresql.Driver
+    db-type: postgresql
+    schema-generate: CREATE_DROP
+    dialect: POSTGRES
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        show_sql: true
+        jdbc:
+          time_zone: UTC
+
+liquibase:
+  datasources:
+    default:
+      change-log: classpath:/database/liquibase-changelog.yml
+      enabled: true
+      drop-first: true
+
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+jackson:
+  time-zone: UTC
+  serialization-inclusion: ALWAYS
+  serialization:
+    indent-output: true
+    write-dates-as-timestamps: false
+    use-big-decimal-for-floats: true
+  deserialization:
+    failOnUnknownProperties: true
+    useBigDecimalForFloats: true

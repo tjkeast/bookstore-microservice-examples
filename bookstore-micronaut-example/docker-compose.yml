@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:14.5
+    container_name: book-db
+    environment:
+      LANG: en_US.utf8
+      POSTGRES_DB: bookstore-example
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data
+      PGPORT: 5432
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: pg_isready -U postgres
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:18.0.2
+    container_name: book-keycloak
+    volumes:
+      - ./scripts/keycloak:/opt/keycloak/data/import # Import realm from file
+    command: [ 'start-dev --import-realm' ]
+    ports:
+      - 8082:8080
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: password

@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:14.5
+    container_name: book-db
+    environment:
+      LANG: en_US.utf8
+      POSTGRES_DB: bookstore-example
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data
+      PGPORT: 5432
+    ports:
+      - 5432:5432
+    healthcheck:
+      test: pg_isready -U postgres

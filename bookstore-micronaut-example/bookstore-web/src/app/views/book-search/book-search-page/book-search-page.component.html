@@ -1,0 +1,22 @@
+<h1>Books</h1>
+<div class="flex flex-wrap">
+	<ng-container *ngFor="let book of books">
+		<div class="pr-2 pb-2">
+			<div class="w-64 p-4 bg-slate-100">
+				<img src="{{ book.coverImageUrl }}" />
+				<p class="font-bold text-lg">{{ book.title }}</p>
+				<p>
+					<span>{{ book.author }}</span>
+					<br />
+					<span>Release date {{ book.releaseDate | date }}</span>
+				</p>
+				<div class="flex">
+					<p class="flex-1">{{ book.price | currency }}</p>
+					<p class="flex-1">{{ book.stock }} in stock</p>
+				</div>
+
+				<button mat-stroked-button class="w-full">ADD TO CART</button>
+			</div>
+		</div>
+	</ng-container>
+</div>

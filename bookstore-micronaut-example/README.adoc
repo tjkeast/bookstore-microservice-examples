@@ -1,0 +1,24 @@
+### Development Guide
+*Start the database*
+```
+docker compose up -d db
+```
+
+
+
+#### Keycloak
+*Start Keycloak*
+```
+docker compose up -d keycloak
+```
+
+*Export a realm*
+```
+docker exec -t book-keycloak sh opt/keycloak/bin/kc.sh export --dir tmp/export --users realm_file --realm local-test
+```
+
+
+Copy realm export into the project directory
+```
+docker cp book-keycloak:tmp/export/local-test-realm.json ./scripts/keycloak/realm-export.json
+```
