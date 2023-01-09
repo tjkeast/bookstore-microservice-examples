@@ -8,7 +8,7 @@
         <version>3.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.keabyte.example.bookstore</groupId>
+    <groupId>example.springboot.bookstore</groupId>
     <artifactId>bookstore-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>bookstore-service</name>

@@ -1,6 +1,6 @@
 package util;
 
-import example.bookstore.micronaut.api.model.BookRequest;
+import example.micronaut.bookstore.api.model.BookRequest;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
