@@ -1,0 +1,10 @@
+config:
+  target: "http://host.docker.internal:8080"
+  phases:
+    - duration: 10
+      arrivalRate: 10
+
+scenarios:
+  - flow:
+      - get:
+          url: "/books"

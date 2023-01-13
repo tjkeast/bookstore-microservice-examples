@@ -50,5 +50,4 @@ jackson:
     write-dates-as-timestamps: false
     use-big-decimal-for-floats: true
   deserialization:
-    failOnUnknownProperties: true
     useBigDecimalForFloats: true

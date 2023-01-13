@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  artillery:
+    image: artilleryio/artillery:latest
+    container_name: artillery
+    volumes:
+      - ./scripts:/scripts
+    command: run /scripts/test.yml

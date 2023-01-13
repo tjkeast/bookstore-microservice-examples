@@ -1,0 +1,4 @@
+### Load testing
+Make several calls to the API in short succession to test behaviour.
+
+`docker compose up`
