@@ -3,26 +3,29 @@ package example.springboot.bookstore.api.controller;
 import example.springboot.bookstore.api.model.Book;
 import example.springboot.bookstore.core.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 
 @RestController
+@RequestMapping("/books")
 public class BookController {
 
     @Autowired
     private BookService bookService;
 
-    @GetMapping("/books")
+    @GetMapping
     public List<Book> getBooks() {
-        return Collections.emptyList();
+        return bookService.getBooks();
     }
 
-    @GetMapping("/books/{bookId}")
+    @GetMapping("/{bookId}")
     public Book getBookById(@PathVariable Long bookId) {
         return bookService.getBook(bookId);
+    }
+
+    @PostMapping
+    public Book createBook(@RequestBody Book bookRequest) {
+        return bookService.createBook(bookRequest);
     }
 }
