@@ -1,6 +1,9 @@
 micronaut:
   application:
     name: bookstoreExample
+  server:
+    cors:
+      enabled: true
   router:
     static-resources:
       swagger:
