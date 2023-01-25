@@ -1,4 +1,4 @@
 databaseChangeLog:
-  - include:
-      file: book.yml
+  - includeAll:
+      path: /
       relativeToChangeLogFile: true

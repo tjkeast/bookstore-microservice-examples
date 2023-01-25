@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: bookstoreExample
+    name: bookstore-service
   server:
     cors:
       enabled: true
@@ -36,7 +36,7 @@ jpa:
 liquibase:
   datasources:
     default:
-      change-log: classpath:/database/liquibase-changelog.yml
+      change-log: classpath:/db/changelog/changelog-root.yml
       enabled: true
       drop-first: true
 
