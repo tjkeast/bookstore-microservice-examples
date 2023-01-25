@@ -1,24 +1,56 @@
-### Development Guide
-*Start the database*
-```
+## Service Guide
+### Design
+[cols=3*,options=header]
+|===
+|Column
+|Type
+|Comments
+
+|id
+|int
+|Primary key
+
+|title
+|varchar(500)
+|
+
+|author
+|varchar(500)
+|
+
+|description
+|text
+|Nullable
+
+|release_date
+|timestamptz
+|
+
+|cover_image_url
+|varchar(2048)
+|Nullable
+
+|===
+
+### Development
+#### Start the database
+----
 docker compose up -d db
-```
+----
 
 
-
-#### Keycloak
-*Start Keycloak*
-```
+### Keycloak
+#### Start Keycloak
+----
 docker compose up -d keycloak
-```
+----
 
-*Export a realm*
-```
+#### Export a realm
+----
 docker exec -t book-keycloak sh opt/keycloak/bin/kc.sh export --dir tmp/export --users realm_file --realm local-test
-```
-
+----
 
 Copy realm export into the project directory
-```
+----
 docker cp book-keycloak:tmp/export/local-test-realm.json ./scripts/keycloak/realm-export.json
-```
+----
