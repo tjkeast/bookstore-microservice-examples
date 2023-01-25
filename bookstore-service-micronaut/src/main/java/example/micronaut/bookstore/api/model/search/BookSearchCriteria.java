@@ -14,6 +14,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.validation.constraints.PositiveOrZero;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,30 +23,28 @@ public class BookSearchCriteria extends PagedSearchCriteria implements Specifica
 
     @Nullable
     @QueryValue
-    @PositiveOrZero
-    private BigDecimal minPrice;
+    private OffsetDateTime releaseDateMin;
 
     @Nullable
     @QueryValue
-    @PositiveOrZero
-    private BigDecimal maxPrice;
+    private OffsetDateTime releaseDateMax;
 
     @Builder
-    public BookSearchCriteria(Integer pageIndex, Integer pageSize, BigDecimal minPrice, BigDecimal maxPrice) {
+    public BookSearchCriteria(Integer pageIndex, Integer pageSize, @Nullable OffsetDateTime releaseDateMin, @Nullable OffsetDateTime releaseDateMax) {
         super(pageIndex, pageSize);
-        this.minPrice = minPrice;
-        this.maxPrice = maxPrice;
+        this.releaseDateMin = releaseDateMin;
+        this.releaseDateMax = releaseDateMax;
     }
 
     @Override
     public Predicate toPredicate(Root<BookEntity> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
         List<Predicate> predicates = new ArrayList<>();
-        if (minPrice != null) {
-            predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get(BookEntity_.PRICE), minPrice));
+        if (releaseDateMin != null) {
+            predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get(BookEntity_.RELEASE_DATE), releaseDateMin));
         }
 
-        if (maxPrice != null) {
-            predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get(BookEntity_.PRICE), maxPrice));
+        if (releaseDateMax != null) {
+            predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get(BookEntity_.RELEASE_DATE), releaseDateMax));
         }
 
         return criteriaBuilder.and(predicates.toArray(new Predicate[]{}));

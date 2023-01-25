@@ -22,30 +22,13 @@ public class BookEntity {
     @Id
     private Long id;
 
-    @NotBlank
-    @Column
     private String title;
 
-    @NotBlank
-    @Column
     private String author;
 
-    @NotBlank
-    @Column
     private String description;
 
-    @NotNull
-    @Column
     private OffsetDateTime releaseDate;
 
-    @Column
     private String coverImageUrl;
-
-    @NotNull
-    @Column
-    private Integer stock;
-
-    @NotNull
-    @Column
-    private BigDecimal price;
 }

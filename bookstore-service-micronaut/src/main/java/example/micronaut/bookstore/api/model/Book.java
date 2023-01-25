@@ -25,8 +25,4 @@ public class Book {
     private OffsetDateTime releaseDate;
 
     private String coverImageUrl;
-
-    private Integer stock;
-
-    private BigDecimal price;
 }
