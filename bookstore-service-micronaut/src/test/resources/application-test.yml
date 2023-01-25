@@ -7,7 +7,6 @@ datasources:
     driverClassName: org.h2.Driver
     username: test
     password: test
-    schema-generate: CREATE_DROP
 
 jpa:
   default:

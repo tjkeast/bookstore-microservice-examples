@@ -20,7 +20,6 @@ datasources:
     password: password
     driverClassName: org.postgresql.Driver
     db-type: postgresql
-    schema-generate: CREATE_DROP
     dialect: POSTGRES
 
 jpa:
