@@ -11,6 +11,8 @@ import io.micronaut.core.util.StringUtils;
 @KafkaClient
 public interface BookProducer {
 
-    @Topic("example.bookstore.topic.book")
+    String TOPIC = "example.bookstore.topic.book";
+
+    @Topic(TOPIC)
     void sendBook(@KafkaKey String key, Book book);
 }
