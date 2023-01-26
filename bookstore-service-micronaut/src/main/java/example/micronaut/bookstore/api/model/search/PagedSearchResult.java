@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.function.Function;
 
 @Data
-@Schema
+@Schema(name = "PagedSearchResult")
 @Builder
 public class PagedSearchResult<T> {
 
