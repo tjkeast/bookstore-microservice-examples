@@ -26,7 +26,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: password
 
   keycloak:
-    image: quay.io/keycloak/keycloak:18.0.2
+    image: quay.io/keycloak/keycloak:20.0.3
     container_name: book-keycloak
     volumes:
       - ./scripts/keycloak:/opt/keycloak/data/import # Import realm from file

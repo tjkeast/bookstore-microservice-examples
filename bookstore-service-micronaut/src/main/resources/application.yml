@@ -12,6 +12,29 @@ micronaut:
       swagger-ui:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
+  security:
+    enabled: true
+    authentication: bearer
+    scope: 'openid profile offline_access'
+    client_id: bookstore
+    issuer: http://localhost:8082/realms/local-test
+    token:
+      roles-name: resource_access.bookstore.roles
+      jwt:
+        signatures:
+          jwks:
+            default:
+              url: http://localhost:8082/realms/local-test/openid-connect/certs
+    intercept-url-map:
+      - pattern: ${micronaut.server.context-path:/}/swagger/**
+        access:
+          - isAnonymous()
+      - pattern: ${micronaut.server.context-path:/}/swagger-ui/**
+        access:
+          - isAnonymous()
+      - pattern: /**
+        access:
+          - isAuthenticated()
 
 datasources:
   default:

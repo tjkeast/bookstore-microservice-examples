@@ -1,5 +1,7 @@
 # Bookstore Guide
 
+Repository: https://github.com/tjkeast/bookstore-microservice-examples
+
 ## Development
 
 ### Quick Start
