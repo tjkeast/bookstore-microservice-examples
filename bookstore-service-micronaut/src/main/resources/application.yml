@@ -53,3 +53,11 @@ jackson:
     use-big-decimal-for-floats: true
   deserialization:
     useBigDecimalForFloats: true
+
+kafka:
+  enabled: true
+  bootstrap:
+    servers: localhost:9092
+  producers:
+    default:
+      retries: 5
