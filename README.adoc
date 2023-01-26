@@ -15,7 +15,7 @@ docker compose up -d
 docker compose up -d db
 ----
 
-### Tables
+#### Tables
 *book*
 [cols=3*,options=header]
 |===
@@ -57,7 +57,7 @@ docker compose up -d pgadmin
 
 #### Export servers
 ----
-docker exec -t book-pgadmin sh /venv/bin/python3 /pgadmin4/setup.py --dump-servers servers.json
+docker exec -t book-pgadmin /venv/bin/python3 /pgadmin4/setup.py --dump-servers servers.json
 ----
 
 Copy exported servers into the project directory
