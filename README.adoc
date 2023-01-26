@@ -1,5 +1,21 @@
-## Service Guide
-### Data Model
+# Bookstore Guide
+
+## Development
+
+### Quick Start
+Start all the containers required to run the application.
+----
+docker compose up -d
+----
+
+### Database
+
+#### Start the database
+----
+docker compose up -d db
+----
+
+### Tables
 *book*
 [cols=3*,options=header]
 |===
@@ -33,12 +49,21 @@
 
 |===
 
-### Development
-#### Start the database
+### pgAdmin
+#### Start pgAdmin
 ----
-docker compose up -d db
+docker compose up -d pgadmin
 ----
 
+#### Export servers
+----
+docker exec -t book-pgadmin sh /venv/bin/python3 /pgadmin4/setup.py --dump-servers servers.json
+----
+
+Copy exported servers into the project directory
+----
+docker cp book-pgadmin:pgadmin4/servers.json ./scripts/pgadmin/servers-export.json
+----
 
 ### Keycloak
 #### Start Keycloak
@@ -55,3 +80,10 @@ Copy realm export into the project directory
 ----
 docker cp book-keycloak:tmp/export/local-test-realm.json ./scripts/keycloak/realm-export.json
 ----
+
+### Kafka
+#### Kafka UI
+----
+docker compose up -d kafka-ui
+----
+This will start up the kafka-ui client, zookeeper, and one broker.
