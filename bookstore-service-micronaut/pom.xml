@@ -140,7 +140,7 @@
         </dependency>
         <dependency>
             <groupId>io.micronaut.security</groupId>
-            <artifactId>micronaut-security</artifactId>
+            <artifactId>micronaut-security-jwt</artifactId>
         </dependency>
     </dependencies>
 

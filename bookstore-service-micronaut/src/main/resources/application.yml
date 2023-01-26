@@ -21,10 +21,11 @@ micronaut:
     token:
       roles-name: resource_access.bookstore.roles
       jwt:
+        enabled: true
         signatures:
           jwks:
             default:
-              url: http://localhost:8082/realms/local-test/openid-connect/certs
+              url: http://localhost:8082/realms/local-test/protocol/openid-connect/certs
     intercept-url-map:
       - pattern: ${micronaut.server.context-path:/}/swagger/**
         access:
