@@ -6,7 +6,7 @@ import example.micronaut.bookstore.persistence.entity.BookEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
-import java.util.Collection;
+import java.util.List;
 
 @Mapper(componentModel = "jsr330")
 public interface EntityMapper {
@@ -17,5 +17,5 @@ public interface EntityMapper {
 
     void update(@MappingTarget BookEntity target, BookRequest source);
 
-    Collection<Book> map(Iterable<BookEntity> book);
+    List<Book> map(Iterable<BookEntity> book);
 }
