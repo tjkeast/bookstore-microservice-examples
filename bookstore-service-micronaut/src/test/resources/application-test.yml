@@ -17,3 +17,6 @@ jpa:
 logger:
   levels:
     liquibase: OFF
+
+kafka:
+  enabled: false

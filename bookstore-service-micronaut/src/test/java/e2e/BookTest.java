@@ -39,6 +39,7 @@ public class BookTest implements TestPropertyProvider {
         postgres.start();
 
         return Map.of(
+                "kafka.enabled", "true",
                 "kafka.bootstrap.servers", kafka.getBootstrapServers(),
                 "datasources.default.url", postgres.getJdbcUrl(),
                 "datasources.default.driverClassName", postgres.getDriverClassName(),
