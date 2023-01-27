@@ -12,7 +12,7 @@ jpa:
   default:
     properties:
       hibernate:
-        show_sql: false
+        show_sql: true
 
 logger:
   levels:

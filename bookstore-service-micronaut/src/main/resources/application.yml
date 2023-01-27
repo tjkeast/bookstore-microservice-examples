@@ -43,8 +43,6 @@ datasources:
     username: postgres
     password: password
     driverClassName: org.postgresql.Driver
-    db-type: postgresql
-    dialect: POSTGRES
 
 jpa:
   default:

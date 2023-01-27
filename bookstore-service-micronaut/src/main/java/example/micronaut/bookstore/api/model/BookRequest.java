@@ -5,8 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.LocalDate;
 
 @Builder
 @Data
@@ -20,11 +19,7 @@ public class BookRequest {
 
     private String description;
 
-    private OffsetDateTime releaseDate;
+    private LocalDate releaseDate;
 
     private String coverImageUrl;
-
-    private Integer stock;
-
-    private BigDecimal price;
 }

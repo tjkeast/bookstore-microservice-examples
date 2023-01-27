@@ -5,11 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Data
 @Builder
@@ -28,7 +28,7 @@ public class BookEntity {
 
     private String description;
 
-    private OffsetDateTime releaseDate;
+    private LocalDate releaseDate;
 
     private String coverImageUrl;
 }
