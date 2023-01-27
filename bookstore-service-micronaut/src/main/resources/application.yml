@@ -37,6 +37,13 @@ micronaut:
         access:
           - isAuthenticated()
 
+liquibase:
+  datasources:
+    default:
+      change-log: classpath:/db/changelog/changelog-root.yml
+      enabled: true
+      drop-first: true
+      
 datasources:
   default:
     url: jdbc:postgresql://localhost:5432/bookstore-example
@@ -53,13 +60,6 @@ jpa:
         show_sql: true
         jdbc:
           time_zone: UTC
-
-liquibase:
-  datasources:
-    default:
-      change-log: classpath:/db/changelog/changelog-root.yml
-      enabled: true
-      drop-first: true
 
 netty:
   default:
