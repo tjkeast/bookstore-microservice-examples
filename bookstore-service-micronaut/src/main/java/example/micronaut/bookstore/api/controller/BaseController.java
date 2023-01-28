@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import java.time.OffsetDateTime;
 
 @Controller("/")
-@Tag(name = "base")
+@Tag(name = "Base")
 public class BaseController {
 
     @Get(produces = MediaType.TEXT_PLAIN)

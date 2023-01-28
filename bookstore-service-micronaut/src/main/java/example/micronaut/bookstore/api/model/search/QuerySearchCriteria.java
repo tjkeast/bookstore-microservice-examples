@@ -1,6 +1,5 @@
 package example.micronaut.bookstore.api.model.search;
 
-import io.micronaut.core.annotation.Introspected;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.data.jpa.repository.criteria.Specification;
 import io.micronaut.http.annotation.QueryValue;
@@ -13,18 +12,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@Introspected
 public class QuerySearchCriteria<T> extends PagedSearchCriteria implements Specification<T> {
 
     @Nullable
     @QueryValue
     @NotBlank
-    private String query;
+    private final String query;
 
     @Nullable
     @QueryValue
     @NotBlank
-    private List<String> queryFields;
+    private final List<String> queryFields;
 
     public QuerySearchCriteria(Integer pageIndex, Integer pageSize, String query, List<String> queryFields) {
         super(pageIndex, pageSize);

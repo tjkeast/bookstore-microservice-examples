@@ -20,11 +20,11 @@ public class BookSearchCriteria extends QuerySearchCriteria<BookEntity> {
 
     @Nullable
     @QueryValue
-    private LocalDate releaseDateMin;
+    private final LocalDate releaseDateMin;
 
     @Nullable
     @QueryValue
-    private LocalDate releaseDateMax;
+    private final LocalDate releaseDateMax;
 
     @Builder
     public BookSearchCriteria(Integer pageIndex, Integer pageSize, String query, List<String> queryFields, @Nullable LocalDate releaseDateMin, @Nullable LocalDate releaseDateMax) {
@@ -37,7 +37,7 @@ public class BookSearchCriteria extends QuerySearchCriteria<BookEntity> {
     public Predicate toPredicate(Root<BookEntity> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
         List<Predicate> predicates = new ArrayList<>();
         predicates.add(super.toPredicate(root, query, cb));
-        
+
         if (releaseDateMin != null) {
             predicates.add(cb.greaterThanOrEqualTo(root.get(BookEntity_.RELEASE_DATE), releaseDateMin));
         }

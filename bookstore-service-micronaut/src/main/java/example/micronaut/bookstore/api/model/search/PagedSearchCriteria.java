@@ -1,6 +1,5 @@
 package example.micronaut.bookstore.api.model.search;
 
-import io.micronaut.core.annotation.Introspected;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.data.model.Pageable;
 import io.micronaut.http.annotation.QueryValue;
@@ -12,7 +11,6 @@ import static java.lang.Math.min;
 import static org.apache.commons.lang3.ObjectUtils.defaultIfNull;
 
 @Getter
-@Introspected
 public class PagedSearchCriteria {
 
     private static final int DEFAULT_PAGE_SIZE = 10;
@@ -21,12 +19,12 @@ public class PagedSearchCriteria {
     @Nullable
     @QueryValue
     @PositiveOrZero
-    private Integer pageIndex;
+    private final Integer pageIndex;
 
     @Nullable
     @QueryValue
     @PositiveOrZero
-    private Integer pageSize;
+    private final Integer pageSize;
 
     public PagedSearchCriteria(Integer pageIndex, Integer pageSize) {
         this.pageIndex = defaultIfNull(pageIndex, 0);

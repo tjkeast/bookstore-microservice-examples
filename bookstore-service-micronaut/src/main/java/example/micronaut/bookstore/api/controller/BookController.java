@@ -11,7 +11,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.inject.Inject;
 
 @Controller(value = "/books", produces = MediaType.APPLICATION_JSON)
-@Tag(name = "book")
+@Tag(name = "Book")
 public class BookController {
 
     @Inject

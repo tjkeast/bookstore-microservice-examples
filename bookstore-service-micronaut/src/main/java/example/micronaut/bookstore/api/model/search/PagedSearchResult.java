@@ -15,13 +15,13 @@ import java.util.function.Function;
 @Builder
 public class PagedSearchResult<T> {
 
-    private List<T> results;
+    private final List<T> results;
 
-    private long resultSize;
+    private final long resultSize;
 
-    private long totalPages;
+    private final long totalPages;
 
-    private long totalSize;
+    private final long totalSize;
 
     public static <T> PagedSearchResult<T> from(Page<T> page) {
         return from(page, ArrayList::new);
