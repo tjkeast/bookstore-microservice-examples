@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import BookSummary from "../../components/book/BookSummary";
+
 import openapiDefaultConfig from "../../config/openapi-default-config";
 import { BookApi } from "../../generated";
 
@@ -15,7 +17,9 @@ export default function BookSearchPage() {
       BookSearchPage
       <div>
         {books.map((book, i) => (
-          <div key={i}>{book.title}</div>
+          <div key={i}>
+            <BookSummary book={book}></BookSummary>
+          </div>
         ))}
       </div>
     </div>
