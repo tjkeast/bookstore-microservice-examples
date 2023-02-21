@@ -1,6 +1,7 @@
 package example.springboot.bookstore.core.service;
 
 
+import example.springboot.bookstore.api.kafka.BookProducer;
 import example.springboot.bookstore.api.model.Book;
 import example.springboot.bookstore.core.mapper.EntityMapper;
 import example.springboot.bookstore.persistence.entity.BookEntity;
@@ -17,6 +18,9 @@ public class BookServiceImpl implements BookService {
     @Autowired
     private BookRepository bookRepository;
 
+    @Autowired
+    private BookProducer bookProducer;
+
     private EntityMapper mapper = Mappers.getMapper(EntityMapper.class);
 
     public List<Book> getBooks() {
@@ -30,7 +34,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book createBook(Book bookRequest) {
-        BookEntity book = mapper.map(bookRequest);
-        return mapper.map(bookRepository.save(book));
+        BookEntity bookEntity = mapper.map(bookRequest);
+        Book book = mapper.map(bookRepository.save(bookEntity));
+        bookProducer.send(book);
+        return book;
     }
 }
