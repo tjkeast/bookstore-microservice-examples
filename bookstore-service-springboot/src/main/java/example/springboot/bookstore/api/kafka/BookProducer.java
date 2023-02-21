@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookProducer {
 
-    private static final String TOPIC_NAME = "example.springboot.bookstore.book";
+    static final String TOPIC_NAME = "example.springboot.bookstore.book";
     @Autowired
     private KafkaTemplate<String, Book> kafkaTemplate;
 
