@@ -6,20 +6,19 @@ import com.keabyte.bookstore.api.model.Book;
 import com.keabyte.bookstore.core.mapper.EntityMapper;
 import com.keabyte.bookstore.persistence.entity.BookEntity;
 import com.keabyte.bookstore.persistence.repository.BookRepository;
+import lombok.RequiredArgsConstructor;
 import org.mapstruct.factory.Mappers;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
 
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
-    @Autowired
-    private BookProducer bookProducer;
+    private final BookProducer bookProducer;
 
     private EntityMapper mapper = Mappers.getMapper(EntityMapper.class);
 
