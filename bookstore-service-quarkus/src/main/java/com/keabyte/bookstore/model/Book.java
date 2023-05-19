@@ -1,4 +1,4 @@
-package example.quarkus.bookstore.api.model;
+package com.keabyte.bookstore.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,6 +1,6 @@
-package example.quarkus.bookstore.api.resource;
+package com.keabyte.bookstore.resource;
 
-import example.quarkus.bookstore.api.model.Book;
+import com.keabyte.bookstore.model.Book;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -1,4 +1,4 @@
-package example.quarkus.bookstore.api.resource;
+package com.keabyte.bookstore.resource;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
