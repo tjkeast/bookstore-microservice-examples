@@ -1,7 +1,7 @@
-package example.springboot.bookstore.api.controller;
+package com.keabyte.bookstore.api.controller;
 
-import example.springboot.bookstore.api.model.Book;
-import example.springboot.bookstore.core.service.BookService;
+import com.keabyte.bookstore.api.model.Book;
+import com.keabyte.bookstore.core.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

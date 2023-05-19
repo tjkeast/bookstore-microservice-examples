@@ -1,4 +1,4 @@
-package example.springboot.bookstore.api.kafka;
+package com.keabyte.bookstore.api.kafka;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.context.annotation.Bean;

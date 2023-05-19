@@ -1,4 +1,4 @@
-package example.springboot.bookstore.api.model;
+package com.keabyte.bookstore.api.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

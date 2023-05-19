@@ -1,6 +1,6 @@
-package example.springboot.bookstore.persistence.repository;
+package com.keabyte.bookstore.persistence.repository;
 
-import example.springboot.bookstore.persistence.entity.BookEntity;
+import com.keabyte.bookstore.persistence.entity.BookEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

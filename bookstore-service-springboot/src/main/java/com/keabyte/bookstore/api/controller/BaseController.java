@@ -1,4 +1,4 @@
-package example.springboot.bookstore.api.controller;
+package com.keabyte.bookstore.api.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

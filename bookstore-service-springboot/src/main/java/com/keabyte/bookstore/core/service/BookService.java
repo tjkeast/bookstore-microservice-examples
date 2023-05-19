@@ -1,7 +1,7 @@
-package example.springboot.bookstore.core.service;
+package com.keabyte.bookstore.core.service;
 
 
-import example.springboot.bookstore.api.model.Book;
+import com.keabyte.bookstore.api.model.Book;
 
 import java.util.List;
 

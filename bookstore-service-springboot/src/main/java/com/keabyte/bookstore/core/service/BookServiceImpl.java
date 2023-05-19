@@ -1,11 +1,11 @@
-package example.springboot.bookstore.core.service;
+package com.keabyte.bookstore.core.service;
 
 
-import example.springboot.bookstore.api.kafka.BookProducer;
-import example.springboot.bookstore.api.model.Book;
-import example.springboot.bookstore.core.mapper.EntityMapper;
-import example.springboot.bookstore.persistence.entity.BookEntity;
-import example.springboot.bookstore.persistence.repository.BookRepository;
+import com.keabyte.bookstore.api.kafka.BookProducer;
+import com.keabyte.bookstore.api.model.Book;
+import com.keabyte.bookstore.core.mapper.EntityMapper;
+import com.keabyte.bookstore.persistence.entity.BookEntity;
+import com.keabyte.bookstore.persistence.repository.BookRepository;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

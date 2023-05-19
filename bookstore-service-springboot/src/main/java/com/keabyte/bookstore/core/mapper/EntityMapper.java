@@ -1,7 +1,7 @@
-package example.springboot.bookstore.core.mapper;
+package com.keabyte.bookstore.core.mapper;
 
-import example.springboot.bookstore.api.model.Book;
-import example.springboot.bookstore.persistence.entity.BookEntity;
+import com.keabyte.bookstore.api.model.Book;
+import com.keabyte.bookstore.persistence.entity.BookEntity;
 import org.mapstruct.Mapper;
 
 import java.util.List;

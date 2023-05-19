@@ -1,4 +1,4 @@
-package example.springboot.bookstore.persistence.entity;
+package com.keabyte.bookstore.persistence.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
