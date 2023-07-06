@@ -1,4 +1,4 @@
-package com.keabyte.bookstore
+package com.example.micronaut.bookstore
 
 import io.micronaut.runtime.Micronaut.run
 import io.swagger.v3.oas.annotations.*
@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.info.*
 
 @OpenAPIDefinition(
     info = Info(
-            title = "bookstore-api",
+            title = "bookstore-service-micronaut-kotlin",
             version = "0.0"
     )
 )

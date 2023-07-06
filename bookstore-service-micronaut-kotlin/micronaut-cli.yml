@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.example.micronaut.bookstore
+testFramework: junit
+sourceLanguage: kotlin
+buildTool: gradle
+features: [annotation-api, app-name, data, data-hibernate-reactive, gradle, http-client, jackson-databind, junit, kafka, kotlin, kotlin-application, kotlin-build, kotlin-extension-functions, logback, micronaut-build, mockito, netty-server, openapi, postgres, reactor, reactor-http-client, readme, shade, swagger-ui, test-resources, yaml]

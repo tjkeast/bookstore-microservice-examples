@@ -1,6 +1,6 @@
 micronaut:
   application:
-    name: bookstoreApi
+    name: bookstoreServiceMicronautKotlin
   router:
     static-resources:
       swagger:
@@ -9,20 +9,26 @@ micronaut:
       swagger-ui:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
+
 datasources:
   default:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: jdbc:postgresql://localhost:5432/bookstore-example
     username: postgres
-    password: ''
-    driver-class-name: org.postgresql.Driver
-    db-type: postgres
-    dialect: POSTGRES
+    password: password
+    driverClassName: org.postgresql.Driver
+
 jpa:
   default:
     properties:
       hibernate:
         hbm2ddl:
-          auto: update
+          auto: create-drop
+        connection:
+          db-type: postgres
+          url: jdbc:postgresql://localhost:5432/bookstore-example
+          username: postgres
+          password: password
+    reactive: true
 netty:
   default:
     allocator:
