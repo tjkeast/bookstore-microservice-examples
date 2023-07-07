@@ -17,6 +17,16 @@ datasources:
     password: password
     driverClassName: org.postgresql.Driver
 
+jackson:
+  time-zone: UTC
+  serialization-inclusion: ALWAYS
+  serialization:
+    indent-output: true
+    write-dates-as-timestamps: false
+    use-big-decimal-for-floats: true
+  deserialization:
+    useBigDecimalForFloats: true
+
 jpa:
   default:
     properties:
