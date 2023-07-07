@@ -28,7 +28,11 @@ jpa:
           url: jdbc:postgresql://localhost:5432/bookstore-example
           username: postgres
           password: password
+        show_sql: true
+        jdbc:
+          time_zone: UTC
     reactive: true
+
 netty:
   default:
     allocator:
