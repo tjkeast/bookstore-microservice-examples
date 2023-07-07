@@ -1,4 +1,4 @@
-package com.example.micronaut.bookstore.controller.service.model
+package com.example.micronaut.bookstore.service.model
 
 import io.micronaut.core.annotation.Nullable
 import io.micronaut.data.model.Pageable

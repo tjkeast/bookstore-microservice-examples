@@ -1,6 +1,6 @@
-package com.example.micronaut.bookstore.controller.service.model
+package com.example.micronaut.bookstore.service.model
 
-import com.example.micronaut.bookstore.entity.BookEntity
+import com.example.micronaut.bookstore.repository.entity.BookEntity
 import io.micronaut.core.annotation.Introspected
 import io.micronaut.data.jpa.repository.criteria.Specification
 import javax.persistence.criteria.CriteriaBuilder
