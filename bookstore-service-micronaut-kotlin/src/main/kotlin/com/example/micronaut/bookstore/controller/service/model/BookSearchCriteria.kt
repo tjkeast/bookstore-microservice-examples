@@ -9,7 +9,7 @@ import javax.persistence.criteria.Predicate
 import javax.persistence.criteria.Root
 
 @Introspected
-class BookSearchCriteria(pageIndex: Int, pageSize: Int): PagedSearchCriteria(pageIndex, pageSize), Specification<BookEntity> {
+class BookSearchCriteria(pageIndex: Int?, pageSize: Int?): PagedSearchCriteria(pageIndex, pageSize), Specification<BookEntity> {
 
 
     override fun toPredicate(

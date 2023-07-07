@@ -10,13 +10,6 @@ micronaut:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
 
-datasources:
-  default:
-    url: jdbc:postgresql://localhost:5432/bookstore-example
-    username: postgres
-    password: password
-    driverClassName: org.postgresql.Driver
-
 jackson:
   time-zone: UTC
   serialization-inclusion: ALWAYS

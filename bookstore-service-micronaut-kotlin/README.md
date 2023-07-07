@@ -1,3 +1,9 @@
+## Development
+
+
+### Insert test data on startup
+`-Dmicronaut.environments=dev-test`
+
 ## Micronaut 3.9.4 Documentation
 
 - [User Guide](https://docs.micronaut.io/3.9.4/guide/index.html)
