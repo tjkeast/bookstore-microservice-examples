@@ -19,6 +19,11 @@ datasources:
     db-type: postgres
     dialect: POSTGRES
 
+liquibase:
+  datasources:
+    default:
+      change-log: classpath:db/liquibase-changelog.xml
+
 jpa:
   default:
     properties:
@@ -29,16 +34,6 @@ jpa:
         jdbc:
           time_zone: UTC
 
-netty:
-  default:
-    allocator:
-      max-order: 3
-
-liquibase:
-  datasources:
-    default:
-      change-log: classpath:db/liquibase-changelog.xml
-
 jackson:
   time-zone: UTC
   serialization-inclusion: ALWAYS
@@ -48,3 +43,7 @@ jackson:
     use-big-decimal-for-floats: true
   deserialization:
     useBigDecimalForFloats: true
+
+kafka:
+  bootstrap:
+    servers: localhost:9092

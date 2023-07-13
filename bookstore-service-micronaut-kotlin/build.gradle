@@ -1,39 +1,46 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm") version "1.6.21"
-    id("org.jetbrains.kotlin.kapt") version "1.6.21"
-    id("org.jetbrains.kotlin.plugin.allopen") version "1.6.21"
-    id("org.jetbrains.kotlin.plugin.jpa") version "1.6.21"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
-    id("io.micronaut.application") version "3.7.10"
+    id("org.jetbrains.kotlin.jvm") version "1.8.22"
+    id("org.jetbrains.kotlin.kapt") version "1.8.22"
+    id("org.jetbrains.kotlin.plugin.allopen") version "1.8.22"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.8.22"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("io.micronaut.application") version "4.0.0-M8"
+    id("io.micronaut.test-resources") version "4.0.0-M8"
 }
 
 version = "0.1"
-group = "com.example.micronaut.bookstore"
+group = "com.example.micronaut.bookstore.service"
 
 repositories {
+    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+        mavenContent { snapshotsOnly() }
+    }
     mavenCentral()
 }
 
 dependencies {
     kapt("io.micronaut.data:micronaut-data-processor")
-    kapt("io.micronaut:micronaut-http-validation")
     kapt("io.micronaut.openapi:micronaut-openapi")
+    kapt("io.micronaut.serde:micronaut-serde-processor")
+    kapt("io.micronaut.validation:micronaut-validation-processor")
     implementation("io.micronaut:micronaut-http-client")
-    implementation("io.micronaut:micronaut-jackson-databind")
-    implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
     implementation("io.micronaut.kafka:micronaut-kafka")
     implementation("io.micronaut.kotlin:micronaut-kotlin-extension-functions")
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
     implementation("io.micronaut.liquibase:micronaut-liquibase")
+    implementation("io.micronaut.serde:micronaut-serde-jackson")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    implementation("io.micronaut.validation:micronaut-validation")
     implementation("io.swagger.core.v3:swagger-annotations")
     implementation("jakarta.annotation:jakarta.annotation-api")
+    implementation("jakarta.validation:jakarta.validation-api")
     implementation("org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
     runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("org.yaml:snakeyaml")
     testImplementation("org.assertj:assertj-core")
     testImplementation("org.mockito:mockito-core")
     testImplementation("org.testcontainers:junit-jupiter")
@@ -41,8 +48,9 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers")
 }
 
+
 application {
-    mainClass.set("com.example.micronaut.bookstore.ApplicationKt")
+    mainClass.set("com.example.micronaut.bookstore.service.ApplicationKt")
 }
 java {
     sourceCompatibility = JavaVersion.toVersion("17")
@@ -50,13 +58,13 @@ java {
 
 tasks {
     compileKotlin {
-        kotlinOptions {
-            jvmTarget = "17"
+        compilerOptions {
+           jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
         }
     }
     compileTestKotlin {
-        kotlinOptions {
-            jvmTarget = "17"
+        compilerOptions {
+           jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17
         }
     }
 }
@@ -66,7 +74,10 @@ micronaut {
     testRuntime("junit5")
     processing {
         incremental(true)
-        annotations("com.example.micronaut.bookstore.*")
+        annotations("com.example.micronaut.bookstore.service.*")
+    }
+    testResources {
+        sharedServer = true
     }
 }
 

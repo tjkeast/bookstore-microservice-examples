@@ -1,14 +1,17 @@
 package com.example.micronaut.bookstore.controller
 
+import com.example.micronaut.bookstore.kafka.producer.BookProducer
 import com.example.micronaut.bookstore.service.model.BookSearchCriteria
 import com.example.micronaut.bookstore.util.TestFixture
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.mockito.Mock
 
 @MicronautTest
 class BookControllerTest(
-    private val bookController: BookController
+    private val bookController: BookController,
+    @Mock private val bookProducer: BookProducer
 ) {
 
 

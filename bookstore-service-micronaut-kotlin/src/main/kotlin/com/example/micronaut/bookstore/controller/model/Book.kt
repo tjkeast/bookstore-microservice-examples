@@ -1,8 +1,10 @@
 package com.example.micronaut.bookstore.controller.model
 
 import com.example.micronaut.bookstore.repository.entity.BookEntity
+import io.micronaut.serde.annotation.Serdeable
 import java.time.LocalDate
 
+@Serdeable
 data class Book(
     val id: String,
     val title: String,

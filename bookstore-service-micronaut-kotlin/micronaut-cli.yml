@@ -1,6 +1,6 @@
 applicationType: default
-defaultPackage: com.example.micronaut.bookstore
+defaultPackage: com.example.micronaut.bookstore.service
 testFramework: junit
 sourceLanguage: kotlin
 buildTool: gradle
-features: [annotation-api, app-name, assertj, data, data-jpa, gradle, http-client, jackson-databind, jdbc-hikari, junit, kafka, kotlin, kotlin-application, kotlin-build, kotlin-extension-functions, liquibase, logback, micronaut-build, micronaut-validation, mockito, netty-server, openapi, postgres, readme, shade, swagger-ui, testcontainers, yaml]
+features: [annotation-api, app-name, assertj, data, data-jpa, gradle, http-client, jdbc-hikari, junit, kafka, kapt, kotlin, kotlin-application, kotlin-extension-functions, liquibase, logback, micronaut-build, mockito, netty-server, openapi, postgres, readme, serialization-jackson, shade, swagger-ui, test-resources, testcontainers, validation, yaml, yaml-build]

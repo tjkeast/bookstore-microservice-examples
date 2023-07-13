@@ -1,11 +1,14 @@
 package com.example.micronaut.bookstore.controller.model
 
 import com.example.micronaut.bookstore.repository.entity.BookEntity
+import io.micronaut.core.annotation.Introspected
+import io.micronaut.serde.annotation.Serdeable
 import io.swagger.v3.oas.annotations.media.Schema
 import java.time.LocalDate
 import java.util.*
 
 @Schema
+@Serdeable
 data class CreateBookRequest(
     @Schema
     val title: String,

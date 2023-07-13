@@ -1,8 +1,8 @@
 package com.example.micronaut.bookstore.repository.entity
 
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
 import java.time.LocalDate
-import javax.persistence.Entity
-import javax.persistence.Id
 
 @Entity(name = "book")
 class BookEntity(
