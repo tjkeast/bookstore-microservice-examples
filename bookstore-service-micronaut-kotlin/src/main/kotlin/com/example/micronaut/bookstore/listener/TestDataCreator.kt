@@ -12,17 +12,17 @@ import java.util.*
 
 @Singleton
 @Requires(env = ["dev-test"])
-open class TestData(@Inject val bookRepository: BookRepository) {
+open class TestDataCreator(@Inject val bookRepository: BookRepository) {
 
     @EventListener
     open fun init(event: StartupEvent) {
         bookRepository.saveAll((1..10).map {
             BookEntity(
                 id = UUID.randomUUID().toString(),
-                author = "Frank Herber",
+                author = "Frank Herbert",
                 releaseDate = LocalDate.now(),
                 title = "Dune"
             )
-        }).subscribe()
+        })
     }
 }

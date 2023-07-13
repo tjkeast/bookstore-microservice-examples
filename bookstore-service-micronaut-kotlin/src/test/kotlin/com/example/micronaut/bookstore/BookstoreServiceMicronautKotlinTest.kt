@@ -1,19 +1,15 @@
 package com.example.micronaut.bookstore
+
 import io.micronaut.runtime.EmbeddedApplication
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
-import org.junit.jupiter.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import jakarta.inject.Inject
 
 @MicronautTest
-class BookstoreServiceMicronautKotlinTest {
-
-    @Inject
-    lateinit var application: EmbeddedApplication<*>
+class BookstoreServiceMicronautKotlinTest(private val application: EmbeddedApplication<*>) {
 
     @Test
     fun testItWorks() {
-        Assertions.assertTrue(application.isRunning)
+        assertThat(application.isRunning).isTrue
     }
-
 }

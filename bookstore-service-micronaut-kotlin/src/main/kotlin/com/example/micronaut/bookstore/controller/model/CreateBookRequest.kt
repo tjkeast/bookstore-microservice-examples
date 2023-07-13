@@ -12,11 +12,11 @@ data class CreateBookRequest(
     @Schema
     val author: String,
     @Schema
-    val description: String?,
+    val description: String? = null,
     @Schema
     val releaseDate: LocalDate,
     @Schema
-    val coverageImageUrl: String?
+    val coverageImageUrl: String? = null
 ) {
 
     fun toEntity(): BookEntity {

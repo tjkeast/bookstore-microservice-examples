@@ -10,6 +10,35 @@ micronaut:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
 
+datasources:
+  default:
+    url: jdbc:postgresql://localhost:5432/bookstore-example
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+    db-type: postgres
+    dialect: POSTGRES
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: create-drop
+        show_sql: true
+        jdbc:
+          time_zone: UTC
+
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+liquibase:
+  datasources:
+    default:
+      change-log: classpath:db/liquibase-changelog.xml
+
 jackson:
   time-zone: UTC
   serialization-inclusion: ALWAYS
@@ -19,24 +48,3 @@ jackson:
     use-big-decimal-for-floats: true
   deserialization:
     useBigDecimalForFloats: true
-
-jpa:
-  default:
-    properties:
-      hibernate:
-        hbm2ddl:
-          auto: create-drop
-        connection:
-          db-type: postgres
-          url: jdbc:postgresql://localhost:5432/bookstore-example
-          username: postgres
-          password: password
-        show_sql: true
-        jdbc:
-          time_zone: UTC
-    reactive: true
-
-netty:
-  default:
-    allocator:
-      max-order: 3

@@ -5,19 +5,19 @@ import com.example.micronaut.bookstore.controller.model.CreateBookRequest
 import com.example.micronaut.bookstore.repository.BookRepository
 import com.example.micronaut.bookstore.service.model.BookSearchCriteria
 import io.micronaut.data.model.Page
-import jakarta.inject.Inject
 import jakarta.inject.Singleton
-import reactor.core.publisher.Mono
+import javax.transaction.Transactional
 
 @Singleton
-class BookService(@Inject private val bookRepository: BookRepository) {
+open class BookService(private val bookRepository: BookRepository) {
 
-    fun getBooks(bookSearchCriteria: BookSearchCriteria): Mono<Page<Book>> {
+    @Transactional
+    open fun getBooks(bookSearchCriteria: BookSearchCriteria): Page<Book> {
         return bookRepository.findAll(bookSearchCriteria, bookSearchCriteria.toPageable())
-            .map { it.map { z -> Book.from(z) } }
+            .map { Book.from(it) }
     }
 
-    fun createBook(createBookRequest: CreateBookRequest): Mono<Book> {
-        return bookRepository.save(createBookRequest.toEntity()).map { Book.from(it) }
+    fun createBook(createBookRequest: CreateBookRequest): Book {
+        return Book.from(bookRepository.save(createBookRequest.toEntity()))
     }
 }
